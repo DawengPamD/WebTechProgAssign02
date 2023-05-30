@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="HomePageccs.css">
+  </head>
+  <body>
+    <header>
+       <div class="navLink">
+           <div class="menulink">
+             <img src="f754d7872ce12572f8f010ec858019ea.jpg" class="logo">
+              <nav>
+                <ul id="menuList">
+                        <li> <a href="Catergoies.html">Turtle Catergoies</a></li>
+                        <li> <a href="Hikkaduwa.html">Hikkaduwa Turtle Hatcheries</a></li>
+                        <li><a href="Threats to Turtles.html">Threats To Turtles</a></li>
+                        <li><a href="Other.html">Other Turtles Hatcheries</a></li>
+                        <li><a href="P&D.html">Purchase & Donate Page</a></li>
+                </ul>
+              </nav>
+              <img src="hamburger-menu-icon-svg-17.jpg" class="menuimg" onclick="togglemenu()">
+           </div>
+      </div>
+      <div id="mainContainer">
+        <div class="line">
+        </div>
+        <div class="Intro">
+          <h4>
+           Hello and Welcome to our website all about Sri Lankan turtles!<br>
+          <p>Did you know that Sri Lanka is home to five of the seven types of sea turtles in the whole world?
+          That's pretty cool, right? These turtles come to our island every year to lay their eggs on our sandy beaches.
+          But unfortunately, turtles are in trouble because people are doing things like cutting down their homes,
+          catching them, and making the ocean dirty. So, we made this website to teach you all about Sri Lankan turtles and how you can help protect them.<p>
+          <br>Come join us and learn all about these awesome creatures!
+          </h4>
+        </div>
+      </div>
+
+    </header>
+  <div id="notHead">
+    <div class="row">
+        <img src="sri lank image.jpg" alt="" class="firstimg">
+      <section class="mySectiona">
+        <header class="sect_title">
+          <h2>Meet the Five Species of Sea Turtles in Sri Lanka</h2>
+        </header>
+        <h3>Sri Lanka is home to five of the seven species of sea turtles in the world.</h3>
+          Each species is unique and has its own special characteristics.
+           The most common species found in Sri Lanka are:
+           <ol>
+             <li> The Green Turtle</li>
+             <li> The Olive Ridley Turtle</li>
+             <li> The Hawksbill Turtle</li>
+             <li> The Leatherback Turtle</li>
+             <li> The Loggerhead Turtle</li>
+           </ol>
+           <p>The Green Turtle is the largest of the species found in Sri Lanka and is easily recognizable by its green skin and large body size
+           TheBentota-view-from-upper.jpg Olive Ridley Turtle is the smallest and is named after its olive-colored shell.
+           The Hawksbill Turtle is known for its beautiful, colorful shell and is critically endangered.
+           The Leatherback Turtle is the largest turtle in the world and can weigh over 900 kilograms.
+           Finally, the Loggerhead Turtle is named after its large head and powerful jaws, which help it to eat hard-shelled prey.
+          All of these turtles are important members of Sri Lanka's marine ecosystem and play a vital role in maintaining the health of our oceans.<p>
+            <button type="button"><a href="Catergoies.html">More Info</a></button>
+      </section>
+    </div>
+   <div class="row">
+       <img src="plastic turtle 1.jpg" alt="" class="secondimg">
+     <section class="mySectionb">
+       <header class="sect_title">
+         <h2>Sri Lanka's Sea Turtles Under Threat</h2>
+       </header>
+       <p><h3>Sea turtles in Sri Lanka face a number of threats to their survival.</h3> <br>The most significant of these is habitat loss, which is caused by human activities such as coastal development and tourism.
+       Pollution in the oceans, particularly from plastic and other debris, also poses a major risk to turtles, as they can mistake it for food or become entangled in it.
+       Illegal hunting, egg harvesting, and accidental capture in fishing gear are additional threats.</p>
+
+       <p>Climate change is another major concern, as it can affect turtle nesting habitats and the temperature of the sand where eggs are laid.
+       <br>To protect these magnificent creatures, it is important to take action to address these threats and ensure the health of Sri Lanka's marine ecosystems.</p>
+       <button type="button"><a href="Threats Tto Turtles.html">More Info</a></button>
+     </section>
+   </div>
+   <div class="row">
+       <img src="turtlehatcheriesimg.jpg" alt="" class="thirdimg">
+     <section>
+     <div class="mySectionc">
+       <header class="sect_title">
+         <h2>Turtles Hatcheries</h2>
+       </header>
+       <p>Hatcheries are essential facilities that play a crucial role in protecting sea turtle eggs from natural and human dangers.
+         They provide a safe environment for the eggs to hatch, increasing the chances of survival for young turtles and
+        are particularly important in areas where sea turtle nesting sites are threatened by human activities, such as coastal development and tourism.
+       </p>
+       <p>In addition to protecting sea turtles, hatcheries also provide a unique opportunity for visitors to learn about sea turtle conservation.
+       Visitors can observe the process of protecting and caring for sea turtle eggs and hatchlings.
+       Educational programs offered by hatcheries can also help to raise awareness about the threats facing sea turtles and the importance of taking action to protect them.</p>
+       </p>
+       <button type="button"><a href="Hikkaduwa.html">More Info</a></button>
+
+     </section>
+   </div>
+  </div>
+</div>
+<footer class="footer">
+<p>&copy; 2023 Daweng Pam. All rights reserved</p>
+<p>. Contact us at info@slturtles.org</p>
+<br>
+<div class="social-links">
+<a href="https://web.facebook.com/?_rdc=1&_rdr"><img src="facebooklogo.png" alt="facebooklogo"></a>
+<a href="https://twitter.com/"><img src="twiiterlogo.png" alt="twiiterlogo"></a>
+<a href="https://www.instagram.com/"><img src="instalogo.png" alt="instalogo"></a>
+</div>
+</footer>
+<script>
+     var menuList = document.getElementById("menuList");
+     var mainContainer = document.getElementById("mainContainer");
+
+     menuList.style.maxHeight = "0%";
+
+     function togglemenu(){
+     if(menuList.style.maxHeight == "0%") {
+     menuList.style.maxHeight = "150px";
+     mainContainer.style.marginTop = "200px";
+     }
+     else {
+    menuList.style.maxHeight = "0%";
+    mainContainer.style.marginTop = "0px";
+    }
+   }
+</script>
+  </body>
+</html>

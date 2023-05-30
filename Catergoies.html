@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<link rel="stylesheet" href="Catergoiescss.css">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <header>
+      <div class="navLink">
+          <div class="menulink">
+            <img src="f754d7872ce12572f8f010ec858019ea.jpg" class="logo">
+             <nav>
+               <ul id="menuLista">
+                 <li> <a href="Catergoies.html">Turtle Catergoies</a></li>
+                 <li> <a href="Hikkaduwa.html">Hikkaduwa Turtle Hatcheries</a></li>
+                 <li><a href="Threats to Turtles.html">Threats To Turtles</a></li>
+                 <li><a href="Other.html">Other Turtles Hatcheries</a></li>
+                 <li><a href="P&D.html">Purchase & Donate Page</a></li>
+               </ul>
+             </nav>
+             <img src="hamburger-menu-icon-svg-17.jpg" class="menuimg" onclick="togglemenua()">
+          </div>
+     </div>
+     <div id="mainContainera">
+      <div class="line">
+
+      </div>
+    </header>
+    <section>
+      <h1>Exploring Sri Lanka's Turtle Diversity</h1>
+      <p><h4>Welcome to our website about the Turtle Species of Sri Lanka! Sri Lanka is a beautiful island nation located in the Indian Ocean, and it is home to a diverse array of sea turtle species.
+         These amazing creatures are an important part of Sri Lanka's marine ecosystem, and they play a vital role in maintaining the balance of the ocean's food chain.
+         Sea turtles have been around for millions of years, and they have evolved to be perfectly adapted for life in the ocean.</h4>
+        <h4> In Sri Lanka, you can find five different species of sea turtles, each with its unique characteristics and behaviors.
+         From the Green Turtle, which is the most common turtle found in Sri Lanka's waters, to the critically endangered Hawksbill Turtle, which is known for its distinctive beak, these turtles are truly fascinating creatures.
+         On this website, we will explore each of these species in detail, highlighting their habitat, behavior, and importance to Sri Lanka's marine ecosystem.</h4>
+         <h4>So, join us as we dive into the world of the Turtle Species of Sri Lanka!</h4>
+       </p>
+    </section>
+    </div>
+
+    <table>
+  <caption>Turtle Species in Sri Lanka</caption>
+  <thead>
+    <tr class="tablehead">
+      <th id="expt">Turtle Species</th>
+      <th id="exptA">Location</th>
+      <th id="exptB">Description</th>
+      <th id="exptC">Image</th>
+    </tr>
+  </thead>
+  </table>
+
+<br>
+<iframe src="CatergoiesFrame.html" allowfullscreen></iframe>
+
+
+<footer class="footer">
+  <p>&copy; 2023 Daweng Pam. All rights reserved</p>
+  <p>. Contact us at info@slturtles.org</p>
+  <div class="social-links">
+  <a href="https://web.facebook.com/?_rdc=1&_rdr"><img src="facebooklogo.png" alt="facebooklogo"></a>
+  <a href="https://twitter.com/"><img src="twiiterlogo.png" alt="twiiterlogo"></a>
+  <a href="https://www.instagram.com/"><img src="instalogo.png" alt="instalogo"></a>
+  </div>
+  </footer>
+  <script>
+       var menuList = document.getElementById("menuLista");
+       var mainContainer = document.getElementById("mainContainera");
+
+       menuList.style.maxHeight = "1%";
+
+
+       function togglemenua(){
+       if(menuList.style.maxHeight <= "1%") {
+       menuList.style.maxHeight = "150px";
+       mainContainer.style.marginTop = "200px";
+       }
+       else {
+      menuList.style.maxHeight = "0.5%";
+      mainContainer.style.marginTop = "0px";
+      }
+     }
+  </script>
+  </body>
+</html>
