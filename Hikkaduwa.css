@@ -199,7 +199,7 @@ section ul li{
         background-color: inherit;
        }
 
-    nav ul{
+   nav ul{
     width: 100%;
     height: 215px;
     animation: backgroundTransition1 20s infinite;
