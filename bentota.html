@@ -11,15 +11,22 @@
      <div class="navLink">
          <div class="menulink">
            <img src="f754d7872ce12572f8f010ec858019ea.jpg" class="logo">
-            <nav>
-              <ul id="menuList">
-                      <li> <a href="Catergoies2.html">Turtle Catergoies</a></li>
-                      <li> <a href="Hikkaduwa.html">Hikkaduwa Turtle Hatcheries</a></li>
-                      <li><a href="Threats to Turtles.html">Threats To Turtles</a></li>
-                      <li><a href="Other.html">Other Turtles Hatcheries</a></li>
-                      <li><a href="P&D.html">Purchase & Donate Page</a></li>
-              </ul>
-            </nav>
+           <nav>
+                <ul id="menuList">
+                        <li> <a href="Catergoies.html">Turtle Catergoies</a></li>
+                        <li> <a href="Hikkaduwa.html">Hikkaduwa Turtle Hatcheries</a></li>
+                        <li><a href="Threats to Turtles.html">Threats To Turtles</a></li>
+                        <li>
+                          <div id="hatcheryLinks">
+                             <ul>
+                               <li><a href="bentota.html">Bentota Hatchery</a></li>
+                               <li><a href="kosgoda.html">Kosgoda Hatchery</a></li>
+                             </ul>
+                          </div>
+                          <a href="#" onclick="toggleHatcheryLinks()">Other Turtles Hatcheries</a></li>
+                        <li><a href="P&D.html">Purchase & Donate Page</a></li>
+                </ul>
+              </nav>
             <img src="hamburger-menu-icon-svg-17.jpg" class="menuimg" onclick="togglemenu()">
          </div>
     </div>
@@ -75,5 +82,11 @@
       }
      }
   </script>
+  <script>
+  function toggleHatcheryLinks() {
+    var hatcheryLinks = document.getElementById("hatcheryLinks");
+    hatcheryLinks.classList.toggle("expanded");
+  }
+</script>
 </body>
 </html>
