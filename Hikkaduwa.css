@@ -204,6 +204,10 @@ section ul li{
     right: 0;
     z-index: 2;
   }
+   
+    nav ul li a{
+       font-size: 3vw;  
+   }
 
    nav ul li{
      display: block;
@@ -233,9 +237,11 @@ section ul li{
    }
 
    .logo{
-     width: 12%;
-     height: 70%;
-   }
+    width: 8vh;
+    height: 7vh;
+    cursor: pointer;
+    margin: 8px, 0;
+  }
 
    #menuList{
      overflow: hidden;
