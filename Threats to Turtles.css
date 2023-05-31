@@ -250,6 +250,10 @@ footer{
     margin-top: 10px;
     margin-bottom: 10px;
   }
+    
+  nav ul li a{
+     font-size: 3vw;  
+   }
 
   #hatcheryLinks {
     display: none;
@@ -272,8 +276,10 @@ footer{
   }
 
   .logo{
-    width: 12%;
-    height: 10%;
+    width: 8vh;
+    height: 7vh;
+    cursor: pointer;
+    margin: 8px, 0;
   }
 
   #menuList{
