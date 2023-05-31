@@ -214,7 +214,7 @@ footer{
     padding: 20px 0px 10px 0px;
   }
 
-  @media only screen and (min-width: 700px){
+  @media only screen and (max-width: 1360px){
   body{
     padding: 0;
     width: 100%;
