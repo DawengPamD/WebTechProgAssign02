@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Purchase and Donate | Turtle Conservation</title>
+  <link rel="stylesheet" href="C:\Users\User\Documents\GitHub\WebTechProgAssign01\P&D.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+        <h2>TURTLES' HATCH</h2>
+    </div>
+
+    <nav>
+      <div class="dropdown-container">
+       <i class="hamburger-menu" onclick="togglemenu()">&#9776;</i>
+        <ul id="menuList">
+                 <li><a href="index.html">Home</a></li>
+                 <li><a href="categories.html">Categories</a></li>
+                 <li><a href="hikkaduwa.html">Hikkaduwa Hatchery</a></li>
+                 <li><a href="threats.html">Threats</a></li>
+                 <li class="dropdown">
+                     <a href="#">Other Turtle Hatcheries</a>
+                     <ul class="dropdown-content">
+                         <li><a href="kosgoda.html">Kosgoda Hatchery</a></li>
+                         <li><a href="bentota.html">Bentota Hatchery</a></li>
+                     </ul>
+                 </li>
+                 <li><a href="P&D.html">Donate</a></li>
+             </ul>
+
+      </div>
+    </nav>
+
+</header>
+  <main>
+    <h2>Donation Options</h2>
+    <div class="donate-option">
+      <span>Adopt a Turtle</span>
+      <span>USD 50</span>
+    </div>
+    <div class="donate-option">
+      <span>Sponsor a Nest</span>
+      <span>USD 30</span>
+    </div>
+    <div class="donate-option">
+      <span>Turtle Conservation Program</span>
+      <span>USD 100</span>
+    </div>
+    <h2>Local Merchandise</h2>
+    <div class="merchandise">
+      <div class="merch-item">
+        <img src="local_turtle_t-shirt.jpg" alt="Turtle T-Shirt">
+        <p>Turtle T-Shirt</p>
+        <p>USD 20</p>
+      </div>
+      <div class="merch-item">
+        <img src="turtle_keychain.jpg" alt="Turtle Keychain">
+        <p>Turtle Keychain</p>
+        <p>USD 5</p>
+      </div>
+      <div class="merch-item">
+        <img src="turtle_poster.avif" alt="Turtle Poster">
+        <p>Turtle Poster</p>
+        <p>USD 15</p>
+      </div>
+      <!-- Add more merchandise items as needed -->
+    </div>
+  </main>
+  <footer class="footer">
+        <p>&copy; 2023 Daweng Pam. All rights reserved</p>
+        <p>. Contact us at info@slturtles.org</p>
+        <div class="social-links">
+            <a href="https://web.facebook.com/?_rdc=1&_rdr"><img src="facebooklogo.png" alt="facebooklogo"></a>
+            <a href="https://twitter.com/"><img src="twiiterlogo.png" alt="twiiterlogo"></a>
+            <a href="https://www.instagram.com/"><img src="instalogo.png" alt="instalogo"></a>
+        </div>
+    </footer>
+</body>
+<script>
+    var menuList = document.getElementById("menuList");
+
+    menuList.style.maxHeight = "none";
+
+    function togglemenu() {
+      if (menuList.style.display === "none" || menuList.style.display === "") {
+       menuList.style.display = "flex";
+   } else {
+       menuList.style.display = "none";
+   }
+
+   function togglemenu() {
+        if (menuList.classList.contains("show-dropdown")) {
+            menuList.classList.remove("show-dropdown");
+        } else {
+            menuList.classList.add("show-dropdown");
+        }
+    }
+  }
+
+</script>
+</html>
