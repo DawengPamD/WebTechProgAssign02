@@ -54,7 +54,7 @@ body {
 
 
 .top{
-  background-image: url("C:/Users/User/Desktop/WDOS SEM2 PROJECT/images/mackinac-island.jpg"); /* Replace with the actual image path */
+  background-image: url("mackinac-island.jpg"); /* Replace with the actual image path */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
