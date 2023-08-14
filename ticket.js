@@ -215,8 +215,8 @@ function updateSummaryTable(selectedDate) {
        localStorage.setItem('totalHours', totalHours);
        localStorage.setItem('peakHours', peakHours);
        localStorage.setItem('normalHours', normalHours);
-       localStorage.setItem('earliestTime ', earliestTime);
-       localStorage.setItem('latestTime ', latestTime);
+       localStorage.setItem('earliestTime', earliestTime);
+       localStorage.setItem('latestTime', latestTime);
        localStorage.setItem("selectedate" , selectedDate2);
        localStorage.setItem("slAdultTickets", slAdultTickets);
        localStorage.setItem("slChildTickets", slChildTickets);
