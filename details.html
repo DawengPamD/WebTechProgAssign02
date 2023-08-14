@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hikkaduwa Turtle Hatchery - Buy Tickets</title>
+  <link rel="stylesheet" href="ticket.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+</head>
+
+ <body class="checkout">
+   <header class="top">
+     <div class="mainpara">
+       <!-- Main Content -->
+         <h1 class="page-heading">Buy Tickets</h1>
+     </div>
+     <!-- Navigation -->
+     <nav class =  "navbar">
+       <!-- <a href="index.html" class="logo"><img src="images\images-fotor-bg-remover-2023072621334.png" alt="" id="logopic"></a> -->
+       <ul>
+         <div class="">
+           <li><a href="index.html">Home</a></li>
+           <span class="line"></span>
+           <li><a href="tickets.html">Tickets</a></li>
+           <span class="line"></span>
+           <li><a href="details.html">Details</a></li>
+           <span class="line"></span>
+         </div>
+         <div class="">
+           <li><a href="payment.html">Payment</a></li>
+           <span class="line"></span>
+           <li id="last"><a href="confirmation.html">Confirmation</a></li>
+         </div>
+         </ul>
+     </nav>
+       </header>
+       <div class="">
+         <h1>Detail Page</h1>
+       </div>
+       <div class="content-container">
+         <div class="form-container">
+        <form id="checkoutForm">
+        <div class="quest-section">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+        <br>
+        <label for="address">Address:</label>
+        <textarea id="address" required></textarea>
+        <br>
+        <label for="mobileNumber">Mobile Number:</label>
+        <input type="tel" id="phone" placeholder="Mobile Number" required>
+        <br>
+        <label for="confirm">Confirm Email:</label>
+        <input type="text" id="confirmEmail" required>
+        <br>
+        <div class="gender">
+        <label for="gender">Gender</label>
+        <span class="line1"></span>
+        <div class="gender-choice">
+          <div class= "male">
+            <input type="radio" id="male" name="gender" value="Male" required>
+            <label for="male">Male</label>
+          </div>
+          <div class="female">
+            <input type="radio" id="female" name="gender" value="Female" required>
+            <label for="female">Female</label>
+          </div>
+        </div>
+        </div>
+        <br>
+        <button type="button" id="continueBtn" class = "continue-button" disabled>Continue with purchase</button>
+      </div>
+    </form>
+    </div>
+
+    <div class="summary-section">
+     <table id="summaryTable">
+        <tr>
+            <th>Date</th>
+            <td></td>
+        </tr>
+        <tr>
+            <th>Time</th>
+            <td></td>
+        </tr>
+        <!-- Add other rows for different pieces of information if needed -->
+     </table>
+   </div>
+</div>
+    <footer>
+      <div class="social-media">
+        <a href="https://www.facebook.com/your-facebook-page" class="social-icon">
+          <img src="facebooklogo.png" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/your-instagram-profile" class="social-icon">
+          <img src="instalogo.png" alt="Instagram">
+        </a>
+        <a href="https://twitter.com/your-twitter-profile" class="social-icon">
+          <img src="twiiterlogo.png" alt="Twitter">
+        </a>
+        <!-- Add more social media buttons as needed -->
+      </div>
+      <p>References of content as comments in the footer area</p>
+      </footer>
+</body>
+    <script>
+        // Function to check if all inputs are filled correctly
+        function validateInputs() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const address = document.getElementById('address').value;
+            const phone = document.getElementById('phone').value;
+            const confirm = document.getElementById('confirmEmail').value;
+            const gender = document.querySelector('input[name="gender"]');
+
+
+       if (gender) {
+           localStorage.setItem('gender', gender.value);
+       } else {
+           localStorage.removeItem('gender');
+       }
+            //check if all fields are non-empty
+            const isFormValid = name && email && address && phone && confirm;
+
+            // Enable or disable the "Continue with purchase" button based on validation
+            const continueBtn = document.getElementById('continueBtn');
+            continueBtn.disabled = !isFormValid;
+        }
+
+
+    // Initialize intl-tel-input
+    var input = document.querySelector("#phone");
+    var iti = window.intlTelInput(input, {
+        separateDialCode: true,
+        initialCountry: "auto",
+        geoIpLookup: function(success, failure) {
+        }
+    });
+
+
+
+    // Add event listener for form validation
+
+        // Save user inputs to local storage whenever they change
+        document.getElementById('checkoutForm').addEventListener('change', () => {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const address = document.getElementById('address').value;
+            const phone = document.getElementById('phone').value;
+            const confirm = document.getElementById('confirmEmail').value;
+            const genderInput = document.querySelector('input[name="gender"]:checked');
+            const gender = genderInput ? genderInput.value : null;
+            const selectedCountry = iti.getSelectedCountryData().iso2;
+            const dialingCode = iti.getSelectedCountryData().dialCode;
+
+
+            localStorage.setItem('name', name);
+            localStorage.setItem('email', email);
+            localStorage.setItem('address', address);
+            localStorage.setItem('phone', phone);
+            localStorage.setItem('confirmEmail' , confirm);
+            localStorage.setItem('selectedCountry', iti.getSelectedCountryData().iso2);
+            localStorage.setItem('dialingCode' , iti.getSelectedCountryData().dialCode);
+
+
+            // Call the validation function whenever inputs change
+            validateInputs();
+        });
+
+        function saveSelectedCountry(selectedCountry) {
+       localStorage.setItem('selectedCountry', selectedCountry);
+   }
+
+        // Load the selected country code from local storage
+   function loadSelectedCountry() {
+       return localStorage.getItem('selectedCountry');
+   }
+
+   function saveDialingCode(dialingCode) {
+    localStorage.setItem('dialingCode', dialingCode);
+}
+
+function loadDialingCode() {
+    return localStorage.getItem('dialingCode');
+}
+
+   // Set the selected country for intl-tel-input
+   function setSelectedCountry(countryCode) {
+       iti.setCountry(countryCode);
+   }
+
+   input.addEventListener("countrychange", (e) => {
+        const selectedCountry = iti.getSelectedCountryData().iso2;
+        saveSelectedCountry(selectedCountry);
+
+        const selectedCountryData = iti.getSelectedCountryData();
+        const dialingCode = selectedCountryData.dialCode;
+
+        saveSelectedCountry(selectedCountryData.iso2);
+        saveDialingCode(dialingCode);
+
+        // Update validation
+        validateInputs();
+    });
+
+        // On page load, set the form values from local storage (if available)
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('name').value = localStorage.getItem('name');
+            document.getElementById('email').value = localStorage.getItem('email');
+            document.getElementById('address').value = localStorage.getItem('address');
+            document.getElementById('phone').value = localStorage.getItem('phone');
+            document.getElementById('confirmEmail').value = localStorage.getItem('confirmEmail');
+            const savedCountry = loadSelectedCountry();
+             if (savedCountry) {
+              setSelectedCountry(savedCountry);
+            }
+
+            const savedDialingCode = loadDialingCode();
+
+    if (savedDialingCode) {
+        const dialingCodeElement = document.getElementById('dialingCode');
+    }
+
+            const savedGender = localStorage.getItem('gender');
+
+           if (savedGender) {
+            const genderInput = document.querySelector(`input[name="gender"][value="${savedGender}"]`);
+             if (genderInput) {
+                genderInput.checked = true;
+              }
+           }
+
+            // Call the validation function on page load
+            validateInputs();
+        });
+
+        function displayStoredSummary() {
+          const selectedDate = localStorage.getItem("selectedDate");
+          const savedselectedTimes = JSON.parse(localStorage.getItem('selectedTimes'));
+          const totalHours = localStorage.getItem('totalHours');
+          const peakHours = localStorage.getItem('peakHours');
+          const normalHours = localStorage.getItem("normalHours");
+          const earliestTime = localStorage.getItem('earliestTime');
+          const latestTime = localStorage.getItem('latestTime');          const slAdultTickets = parseInt(localStorage.getItem("slAdultTickets"));
+          const slChildTickets = parseInt(localStorage.getItem("slChildTickets"));
+          const foreignerAdultTickets = parseInt(localStorage.getItem("foreignerAdultTickets"));
+          const foreignerChildTickets = parseInt(localStorage.getItem("foreignerChildTickets"));
+          const infantTickets = parseInt(localStorage.getItem("infantTickets"));
+          const name = localStorage.getItem("name");
+          const mobile = localStorage.getItem("phone");
+          const savedCountry = localStorage.getItem('selectedCountry');
+          const countryCodex = localStorage.getItem("dialingCode");
+          const email = localStorage.getItem("email");
+          const gender = localStorage.getItem("gender");
+          const totalChargesJson = localStorage.getItem("totalCharges");
+          console.log(totalChargesJson); // Add this line for debugging
+          const totalCharges = JSON.parse(totalChargesJson);
+
+
+
+   // Get the summary table element
+   const summaryTable = document.getElementById("summaryTable");
+
+   // Update the table content with the fetched data
+   summaryTable.innerHTML = `
+   <tr id="personalInfo">
+       <td colspan="2">Personal Information</td>
+   </tr>
+  <tr>
+     <th>Name:</th>
+     <td>${name}</td>
+   </tr>
+    <tr>
+        <th>Date:</th>
+        <td>${selectedDate}</td>
+    </tr>
+    <tr>
+        <th>Duration</th>
+        <td>${totalHours} Hours (${peakHours} Peak Hours : ${normalHours} Normal Hours) </td>
+    </tr>
+    <tr>
+        <th>Time Selected</th>
+        <td>${earliestTime}am - ${latestTime}am</td>
+    </tr>
+    <tr>
+      <th>Mobile:</th>
+      <td>+${countryCodex} ${mobile}</td>
+    </tr>
+    <tr>
+      <th>Email:</th>
+      <td>${email}</td>
+    </tr>
+    <tr>
+      <th>Gender:</th>
+      <td>${gender}</td>
+    </tr>
+    <tr id="ticket-charges">
+        <th>Tickets</th>
+        <th>Charges</th>
+    </tr>
+    </tr>
+    <tr>
+        <td>${slAdultTickets} Sri Lankan Adult ticket${slAdultTickets > 1 ? 's' : ''}</td>
+        <td>$${totalCharges.slAdultCharges}</td>
+    </tr>
+    <tr>
+        <td>${slChildTickets} Sri Lankan Child ticket${slChildTickets > 1 ? 's' : ''}</td>
+        <td>$${totalCharges.slChildCharges}</td>
+    </tr>
+    <tr>
+        <td>${foreignerAdultTickets} Foreigner Adult ticket${foreignerAdultTickets > 1 ? 's' : ''}</td>
+        <td>$${totalCharges.foreignerAdultCharges}</td>
+    </tr>
+    <tr>
+        <td>${foreignerChildTickets} Foreigner Child ticket${foreignerChildTickets > 1 ? 's' : ''}</td>
+        <td>$${totalCharges.foreignerChildCharges}</td>
+    </tr>
+    <tr>
+        <td>${infantTickets} Infant ticket${infantTickets > 1 ? 's' : ''}</td>
+        <td>Free</td>
+    </tr>
+    <tr>
+        <td>Total Payable</td>
+        <td>$${totalCharges.slAdultCharges + totalCharges.slChildCharges + totalCharges.foreignerAdultCharges + totalCharges.foreignerChildCharges}</td>
+    </tr>
+   `;
+}
+
+// Call the function to display the stored summary on page load
+displayStoredSummary();
+
+
+
+        // Redirect to payment page when the "Continue with purchase" button is clicked
+        document.getElementById('continueBtn').addEventListener('click', () => {
+            // You can add the URL of your payment page here
+            window.location.href = 'payment.html';
+        });
+    </script>
+
+</html>
