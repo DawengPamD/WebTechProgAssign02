@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout Form</title>
+    <link rel="stylesheet" href="ticket.css">
+    <style>
+        /* Add your custom CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+
+        /* Payment Details */
+        .payment-details {
+            margin-top: 50px;
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+        }
+
+        .payment-details label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+  <header class="top">
+    <div class="mainpara">
+      <!-- Main Content -->
+        <h1 class="page-heading">Buy Tickets</h1>
+    </div>
+      <!-- Navigation -->
+      <nav class =  "navbar">
+        <!-- <a href="index.html" class="logo"><img src="images\images-fotor-bg-remover-2023072621334.png" alt="" id="logopic"></a> -->
+        <div class="dropdown-container">
+        <i class="hamburger-menu" onclick="togglemenu()">&#9776;</i>
+        <ul id="menuList">
+          <li><a href="index.html">Home</a></li>
+          <span class="line"></span>
+          <li><a href="tickets.html">Tickets</a></li>
+          <span class="line"></span>
+          <li><a href="details.html">Details</a></li>
+          <span class="line"></span>
+          <li><a href="payment.html">Payment</a></li>
+          <span class="line"></span>
+          <li id="last"><a href="confirmation.html">Confirmation</a></li>
+          <!-- <li class="dropdown">
+                       <a href="#">Events</a>
+                       <ul class="dropdown-content">
+                           <li><a href="event1.html">Event A</a></li>
+                           <li><a href="event2.html">Event B</a></li>
+                       </ul>
+                   </li>
+          <li><a href="booking.html">Booking</a></li> -->
+        </ul>
+      </div>
+      </nav>
+      </header>
+  <div class="header">
+    <h1>Payment Details</h1>
+ </div>
+ <div class="content-container">
+   <div class="form-container">
+ <form id="paymentForm">
+     <label for="cardNumber">Card Number:</label>
+     <input type="text" id="cardNumber" required>
+     <br>
+     <label for="expiryDate">Expiry Date:</label>
+     <input type="text" id="expiryDate" placeholder="DD-MM-YY" required>
+     <br>
+     <label for="cvc">CVC / CVV:</label>
+     <input type="text" id="cvc" required>
+     <br>
+     <label for="nameOnCard">Name on Card:</label>
+     <input type="text" id="nameOnCard" required>
+     <br>
+     <button type="button" id="payBtn" disabled>Pay <span id="amount">Amount</span></button>
+ </form>
+</div>
+<div class="summary-section">
+ <table id="summaryTable">
+        <tr>
+            <th>Date</th>
+            <td></td>
+        </tr>
+        <tr>
+            <th>Time</th>
+            <td></td>
+        </tr>
+        <!-- Add other rows for different pieces of information if needed -->
+    </table>
+  </div>
+</div>
+<footer>
+  <div class="social-media">
+    <a href="https://www.facebook.com/your-facebook-page" class="social-icon">
+      <img src="facebooklogo.png" alt="Facebook">
+    </a>
+    <a href="https://www.instagram.com/your-instagram-profile" class="social-icon">
+      <img src="instalogo.png" alt="Instagram">
+    </a>
+    <a href="https://twitter.com/your-twitter-profile" class="social-icon">
+      <img src="twiiterlogo.png" alt="Twitter">
+    </a>
+    <!-- Add more social media buttons as needed -->
+  </div>
+  <p>References of content as comments in the footer area</p>
+  </footer>
+</body>
+
+<script>
+   const cardNumberInput = document.getElementById("cardNumber");
+   const nameOnCardInput = document.getElementById("nameOnCard");
+   const expiryDateInput = document.getElementById("expiryDate");
+   const cvcInput = document.getElementById("cvc");
+   const payBtn = document.getElementById("payBtn");
+   const paymentForm = document.getElementById("paymentForm");
+
+   function saveFormData() {
+       localStorage.setItem("cardNumber", cardNumberInput.value);
+       localStorage.setItem("nameOnCard", nameOnCardInput.value);
+       localStorage.setItem("expiryDate", expiryDateInput.value);
+       localStorage.setItem("cvc", cvcInput.value);
+   }
+
+   // Function to load and display form data from local storage
+   function loadFormData() {
+       cardNumberInput.value = localStorage.getItem("cardNumber") || "";
+       nameOnCardInput.value = localStorage.getItem("nameOnCard") || "";
+       expiryDateInput.value = localStorage.getItem("expiryDate") || "";
+       cvcInput.value = localStorage.getItem("cvc") || "";
+
+       // Trigger input events to update validity and pay button state
+       cardNumberInput.dispatchEvent(new Event("input"));
+       nameOnCardInput.dispatchEvent(new Event("input"));
+       expiryDateInput.dispatchEvent(new Event("input"));
+       cvcInput.dispatchEvent(new Event("input"));
+   }
+
+   // Validate card number (must be 16 digits)
+   cardNumberInput.addEventListener("input", () => {
+       const cardNumber = cardNumberInput.value;
+       if (/^\d{16}$/.test(cardNumber)) {
+           cardNumberInput.setCustomValidity("");
+       } else {
+           cardNumberInput.setCustomValidity("Card number must be 16 digits");
+       }
+       paymentForm.reportValidity(); // Report validity to trigger form validation
+   });
+
+   // Validate name on card (only text characters)
+   nameOnCardInput.addEventListener("input", () => {
+       const nameOnCard = nameOnCardInput.value;
+       if (/^[A-Za-z\s]+$/.test(nameOnCard)) {
+           nameOnCardInput.setCustomValidity("");
+       } else {
+           nameOnCardInput.setCustomValidity("Name on card must contain only letters");
+       }
+       paymentForm.reportValidity();
+   });
+
+   // Validate expiry date (DD-MM-YY format)
+   expiryDateInput.addEventListener("input", () => {
+       const expiryDate = expiryDateInput.value;
+       if (/^(0[1-9]|[12]\d|3[01])-(0[1-9]|1[0-2])-\d{2}$/.test(expiryDate)) {
+           expiryDateInput.setCustomValidity("");
+       } else {
+           expiryDateInput.setCustomValidity("Expiry date must be in DD-MM-YY format");
+       }
+       paymentForm.reportValidity();
+   });
+
+   // Enable/disable pay button based on form validity
+   const formInputs = [cardNumberInput, nameOnCardInput, expiryDateInput, cvcInput];
+   formInputs.forEach(input => {
+       input.addEventListener("input", () => {
+           payBtn.disabled = !paymentForm.checkValidity();
+       });
+   });
+
+   formInputs.forEach(input => {
+        input.addEventListener("input", () => {
+            saveFormData();
+        });
+    });
+
+   document.getElementById('payBtn').addEventListener('click', () => {
+       // You can add the URL of your payment page here
+       window.location.href = 'confirmation.html';
+   });
+
+   loadFormData();
+
+   function displayStoredSummary() {
+     const selectedDate = localStorage.getItem("selectedDate");
+     const savedselectedTimes = JSON.parse(localStorage.getItem('selectedTimes'));
+     const totalHours = localStorage.getItem('totalHours');
+     const peakHours = localStorage.getItem('peakHours');
+     const normalHours = localStorage.getItem("normalHours");
+     const earliestTime = localStorage.getItem('earliestTime');
+     const latestTime = localStorage.getItem('latestTime');
+     const slAdultTickets = parseInt(localStorage.getItem("slAdultTickets"));
+     const slChildTickets = parseInt(localStorage.getItem("slChildTickets"));
+     const foreignerAdultTickets = parseInt(localStorage.getItem("foreignerAdultTickets"));
+     const foreignerChildTickets = parseInt(localStorage.getItem("foreignerChildTickets"));
+     const infantTickets = parseInt(localStorage.getItem("infantTickets"));
+     const name = localStorage.getItem("name");
+     const mobile = localStorage.getItem("phone");
+     const email = localStorage.getItem("email");
+     const gender = localStorage.getItem("gender");
+     const countryCodex = localStorage.getItem("dialingCode");
+     const totalChargesJson = localStorage.getItem("totalCharges");
+     console.log(totalChargesJson); // Add this line for debugging
+     const totalCharges = JSON.parse(totalChargesJson);
+     const summaryTable = document.getElementById("summaryTable");
+
+   // Update the table content with the fetched data
+   summaryTable.innerHTML = `
+   <tr id="personalInfo">
+       <td colspan="2">Personal Information</td>
+   </tr>
+  <tr>
+     <th>Name:</th>
+     <td>${name}</td>
+   </tr>
+    <tr>
+        <th>Date:</th>
+        <td>${selectedDate}</td>
+    </tr>
+    <tr>
+        <th>Duration</th>
+        <td>${totalHours} Hours (${peakHours} Peak Hours : ${normalHours} Normal Hours) </td>
+    </tr>
+    <tr>
+        <th>Time Selected</th>
+        <td>${earliestTime}am - ${latestTime}am</td>
+    </tr>
+    <tr>
+      <th>Mobile:</th>
+      <td>+${countryCodex} ${mobile}</td>
+    </tr>
+    <tr>
+      <th>Email:</th>
+      <td>${email}</td>
+    </tr>
+    <tr>
+      <th>Gender:</th>
+      <td>${gender}</td>
+    </tr>
+    <tr id="ticket-charges">
+        <th>Tickets</th>
+        <th>Charges</th>
+    </tr>
+    </tr>
+    <tr>
+        <td>${slAdultTickets} Sri Lankan Adult ticket${slAdultTickets > 1 ? 's' : ''}</td>
+        <td>$${totalCharges.slAdultCharges}</td>
+    </tr>
+    <tr>
+        <td>${slChildTickets} Sri Lankan Child ticket${slChildTickets > 1 ? 's' : ''}</td>
+        <td>$${totalCharges.slChildCharges}</td>
+    </tr>
+    <tr>
+        <td>${foreignerAdultTickets} Foreigner Adult ticket${foreignerAdultTickets > 1 ? 's' : ''}</td>
+        <td>$${totalCharges.foreignerAdultCharges}</td>
+    </tr>
+    <tr>
+        <td>${foreignerChildTickets} Foreigner Child ticket${foreignerChildTickets > 1 ? 's' : ''}</td>
+        <td>$${totalCharges.foreignerChildCharges}</td>
+    </tr>
+    <tr>
+        <td>${infantTickets} Infant ticket${infantTickets > 1 ? 's' : ''}</td>
+        <td>Free</td>
+    </tr>
+    <tr>
+        <td>Total Payable</td>
+        <td>$${totalCharges.slAdultCharges + totalCharges.slChildCharges + totalCharges.foreignerAdultCharges + totalCharges.foreignerChildCharges}</td>
+    </tr>
+   `;
+}
+
+// Call the function to display the stored summary on page load
+displayStoredSummary();
+</script>
+</html>

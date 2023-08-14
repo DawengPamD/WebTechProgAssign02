@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hikkaduwa Turtle Hatchery - Buy Tickets</title>
+  <link rel="stylesheet" href="ticket.css">
+</head>
+<body class="light">
+  <header class="top">
+    <div class="mainpara">
+      <!-- Main Content -->
+        <h1 class="page-heading">Buy Tickets</h1>
+    </div>
+      <!-- Navigation -->
+      <nav class =  "navbar">
+        <!-- <a href="index.html" class="logo"><img src="images\images-fotor-bg-remover-2023072621334.png" alt="" id="logopic"></a> -->
+        <div class="dropdown-container">
+        <i class="hamburger-menu" onclick="togglemenu()">&#9776;</i>
+        <ul id="menuList">
+          <li><a href="index.html">Home</a></li>
+          <span class="line"></span>
+          <li><a href="tickets.html">Tickets</a></li>
+          <span class="line"></span>
+          <li><a href="details.html">Details</a></li>
+          <span class="line"></span>
+          <li><a href="payment.html">Payment</a></li>
+          <span class="line"></span>
+          <li id="last"><a href="confirmation.html">Confirmation</a></li>
+          <!-- <li class="dropdown">
+                       <a href="#">Events</a>
+                       <ul class="dropdown-content">
+                           <li><a href="event1.html">Event A</a></li>
+                           <li><a href="event2.html">Event B</a></li>
+                       </ul>
+                   </li>
+          <li><a href="booking.html">Booking</a></li> -->
+        </ul>
+      </div>
+      </nav>
+      </header>
+      <div class="content-container">
+        <div class="form-container">
+  <div class="tickets-container">
+    <h2>Dates</h2>
+      <div class ="calendar" id="datePicker">
+      <div class="calendar-header">
+        <span class="month-picker" id="month">August</span>
+        <div class="year-picker">
+          <span class="year-change" id="prev-year"><</span>
+        </div>
+        <span id="year">2023</span>
+        <span class="year-change" id="next-year">></span>
+      </div>
+      <div class="calendar-body">
+        <div class="calendar-week-day">
+          <div>Sun</div>
+          <div>Mon</div>
+          <div>Tues</div>
+          <div>Weds</div>
+          <div>Thur</div>
+          <div>Fri</div>
+          <div>Sat</div>
+        </div>
+        <div class="calendar-days">
+          <div>
+            1
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+          <div>4</div>
+          <div>5</div>
+          <div>6</div>
+          <div>7</div>
+          <div>8</div>
+          <div>9</div>
+          <div>10</div>
+          <div>11</div>
+          <div>12</div>
+          <div>13</div>
+          <div>13</div>
+          <div>14</div>
+          <div>15</div>
+          <div>16</div>
+          <div>17</div>
+          <div>18</div>
+          <div>19</div>
+          <div>20</div>
+          <div>21</div>
+          <div>22</div>
+          <div>23</div>
+          <div>24</div>
+          <div>25</div>
+          <div>26</div>
+          <div>27</div>
+          <div>28</div>
+          <div>29</div>
+          <div>30</div>
+          <div>31</div>
+        </div>
+      </div>
+      <div class="calendar-footer">
+        <div class="toggle">
+          <span>Dark Mode</span>
+          <div class="dark-mode-switch">
+            <div class="dark-mode-switch-ident"></div>
+          </div>
+        </div>
+        <div class="month-list"></div>
+      </div>
+      </div>
+
+      <div id="selected-date"></div>
+
+
+<div class="numcon">
+  <span class="nextc" onclick="nextNum()"></span>
+  <span class="prevc" onclick="prevNum()"></span>
+
+  <div id="box">
+    <span>0</span>
+  </div>
+</div>
+
+    <div class="section guests-section">
+      <fieldset>
+        <h2>Guests</h2>
+        <div class="ticket-category">
+          <label for="slAdult">SL Adult</label>
+          <input type="number" id="slAdult" min="0" onchange="updateSummaryTable()">
+        </div>
+        <div class="ticket-category">
+          <label for="slChild">SL Child</label>
+          <input type="number" id="slChild" min="0" onchange="updateSummaryTable()">
+        </div>
+        <div class="ticket-category">
+          <label for="foreignerAdult">Foreigner Adult</label>
+          <input type="number" id="foreignerAdult" min="0" onchange="updateSummaryTable()">
+        </div>
+        <div class="ticket-category">
+          <label for="foreignerChild">Foreigner Child</label>
+          <input type="number" id="foreignerChild" min="0" onchange="updateSummaryTable()">
+        </div>
+        <div class="ticket-category">
+          <label for="infant">Infant (under 4 years)</label>
+          <input type="number" id="infant" min="0" onchange="updateSummaryTable()">
+        </div>
+      </fieldset>
+
+    </div>
+    <div class="section duration-section">
+      <h2>Duration</h2>
+      <div class="selectable">
+      <div>
+        <input type="checkbox" data-start="7" data-end="8"> 7am-8am<br>
+        <input type="checkbox" data-start="8" data-end="9"> 8am-9am<br>
+        <input type="checkbox" data-start="9" data-end="10"> 9am-10am<br>
+        <input type="checkbox" data-start="10" data-end="11"> 10am-11am<br>
+        <input type="checkbox" data-start="11" data-end="12"> 11am-12pm<br>
+      </div>
+      <div>
+      <input type="checkbox" data-start="12" data-end="13"> 12pm-1pm<br>
+      <input type="checkbox" data-start="13" data-end="14"> 1pm-2pm<br>
+      <input type="checkbox" data-start="14" data-end="15"> 2pm-3pm<br>
+      <input type="checkbox" data-start="15" data-end="16"> 3pm-4pm<br>
+      <input type="checkbox" data-start="16" data-end="17"> 4pm-5pm<br>
+    </div>
+      </div>
+      <input type="checkbox" data-start="17" data-end="18"> 5pm-6pm<br>
+    </div>
+    <div id="selected-times">
+      <h2>Selected Times</h2>
+    </div>
+
+    </div>
+    <div class="summary-section">
+      <h2>Summary</h2>
+      <table id="summaryTable">
+        <tbody>
+         <tr>
+          <th>Tickets</th>
+          <th>Charges</th>
+        </tr>
+        <div id="selectedDte"></div>
+        <!-- Summary table rows will be added here dynamically using JavaScript -->
+        <tbody>
+      </table>
+    </div>
+    </div>
+  </div>
+  <button id="continue-button" class="continue-button">Continue with purchase</button>
+
+
+  <footer>
+    <div class="social-media">
+      <a href="https://www.facebook.com/your-facebook-page" class="social-icon">
+        <img src="facebooklogo.png" alt="Facebook">
+      </a>
+      <a href="https://www.instagram.com/your-instagram-profile" class="social-icon">
+        <img src="instalogo.png" alt="Twitter">
+      </a>
+      <a href="https://twitter.com/your-twitter-profile" class="social-icon">
+        <img src="twiiterlogo.png" alt="Instagram">
+      </a>
+      <!-- Add more social media buttons as needed -->
+    </div>
+    <p>References of content as comments in the footer area</p>
+    </footer>
+<script>
+
+var menuList = document.getElementById("menuList");
+
+    menuList.style.maxHeight = "none";
+
+    function togglemenu() {
+      if (menuList.style.display === "none" || menuList.style.display === "") {
+       menuList.style.display = "flex";
+   } else {
+       menuList.style.display = "none";
+   }
+
+
+ function togglemenu() {
+      if (menuList.classList.contains("show-dropdown")) {
+          menuList.classList.remove("show-dropdown");
+      } else {
+          menuList.classList.add("show-dropdown");
+      }
+  }
+}
+
+</script>
+  <script src="ticket.js"></script>
+</body>
+</html>
